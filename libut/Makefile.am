@@ -2,7 +2,7 @@
 #
 
 lib_LTLIBRARIES = libut.la
-libut_la_SOURCES = ut.c
+libut_la_SOURCES = ut.c strl.c
 libut_la_LDFLAGS = -version-info 1:0:0
 libutincludedir = $(includedir)/ut
 libutinclude_HEADERS = ut.h

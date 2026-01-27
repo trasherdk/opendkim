@@ -208,11 +208,11 @@ AC_CHECK_FUNCS([strlcat strlcpy], [strl_found="yes"],
 		saved_LIBS="$LIBS"
 		LIBS="$outer_LIBS"
 		AC_SEARCH_LIBS([strlcat],
-		               [bsd strl],
+		               [bsd strl ut],
 		               [libstrl_found="yes"],
 		               [strl_found="no"])
 		AC_SEARCH_LIBS([strlcpy],
-		               [bsd strl],
+		               [bsd strl ut],
 		               [libstrl_found="yes"],
 		               [strl_found="no"])
 		STRL_LIBS="$LIBS"

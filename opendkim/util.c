@@ -57,7 +57,7 @@
 #endif /* USE_STRL_H */
 
 /* libut for strlcpy/strlcat */
-#include <ut/ut.h>
+#include "../libut/ut.h"
 
 /* opendkim includes */
 #include "opendkim.h"

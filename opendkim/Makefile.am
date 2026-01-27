@@ -103,10 +103,10 @@ endif
 
 opendkim_testkey_CC = $(PTHREAD_CC)
 opendkim_testkey_SOURCES = config.c config.h opendkim-crypto.c opendkim-crypto.h opendkim-db.c opendkim-db.h opendkim-dns.c opendkim-dns.h opendkim-lua.c opendkim-lua.h opendkim-testkey.c util.c util.h $(srcdir)/../libopendkim/dkim.h $(srcdir)/../libopendkim/dkim-test.h
-opendkim_testkey_CPPFLAGS = -I$(srcdir)/../libopendkim $(LIBCRYPTO_CPPFLAGS)
+opendkim_testkey_CPPFLAGS = -I$(srcdir)/../libopendkim -I$(srcdir)/../libut $(LIBCRYPTO_CPPFLAGS)
 opendkim_testkey_CFLAGS = $(LIBCRYPTO_CFLAGS) $(COV_CFLAGS) $(PTHREAD_CFLAGS)
 opendkim_testkey_LDFLAGS = $(LIBCRYPTO_LIBDIRS) $(COV_LDFLAGS) $(PTHREAD_CFLAGS)
-opendkim_testkey_LDADD = ../libopendkim/libopendkim.la $(LIBCRYPTO_LIBS) $(LIBRESOLV) $(COV_LIBADD) $(PTHREAD_LIBS)
+opendkim_testkey_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(LIBCRYPTO_LIBS) $(LIBRESOLV) $(COV_LIBADD) $(PTHREAD_LIBS)
 if LUA
 opendkim_testkey_CPPFLAGS += $(LIBLUA_INCDIRS) $(LIBMILTER_INCDIRS)
 opendkim_testkey_LDFLAGS += $(LIBLUA_LIBDIRS)
@@ -165,17 +165,17 @@ endif
 
 opendkim_testmsg_CC = $(PTHREAD_CC)
 opendkim_testmsg_SOURCES = opendkim-testmsg.c
-opendkim_testmsg_CPPFLAGS = -I$(srcdir)/../libopendkim $(LIBCRYPTO_CPPFLAGS)
+opendkim_testmsg_CPPFLAGS = -I$(srcdir)/../libopendkim -I$(srcdir)/../libut $(LIBCRYPTO_CPPFLAGS)
 opendkim_testmsg_CFLAGS = $(LIBCRYPTO_CFLAGS) $(COV_CFLAGS) $(PTHREAD_CFLAGS)
 opendkim_testmsg_LDFLAGS = $(COV_LDFLAGS) $(PTHREAD_CFLAGS)
-opendkim_testmsg_LDADD = ../libopendkim/libopendkim.la $(LIBCRYPTO_LIBS) $(LIBRESOLV) $(COV_LIBADD) $(PTHREAD_LIBS)
+opendkim_testmsg_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(LIBCRYPTO_LIBS) $(LIBRESOLV) $(COV_LIBADD) $(PTHREAD_LIBS)
 
 opendkim_genzone_CC = $(PTHREAD_CC)
 opendkim_genzone_SOURCES = config.c config.h opendkim-db.c opendkim-db.h opendkim-genzone.c opendkim-lua.c util.c util.h
-opendkim_genzone_CPPFLAGS = -I$(srcdir)/../libopendkim $(LIBCRYPTO_CPPFLAGS)
+opendkim_genzone_CPPFLAGS = -I$(srcdir)/../libopendkim -I$(srcdir)/../libut $(LIBCRYPTO_CPPFLAGS)
 opendkim_genzone_CFLAGS = $(PTHREAD_CFLAGS) $(LIBCRYPTO_CFLAGS) $(COV_CFLAGS)
 opendkim_genzone_LDFLAGS = $(COV_LDFLAGS) $(LIBCRYPTO_LIBDIRS) $(PTHREAD_CFLAGS)
-opendkim_genzone_LDADD = ../libopendkim/libopendkim.la $(LIBCRYPTO_LIBS) $(COV_LIBADD) $(PTHREAD_LIBS)
+opendkim_genzone_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(LIBCRYPTO_LIBS) $(COV_LIBADD) $(PTHREAD_LIBS)
 if USE_DB_OPENDKIM
 opendkim_genzone_CPPFLAGS += $(LIBDB_INCDIRS)
 opendkim_genzone_LDFLAGS += $(LIBDB_LIBDIRS)
@@ -222,10 +222,10 @@ endif
 if ATPS
 opendkim_atpszone_CC = $(PTHREAD_CC)
 opendkim_atpszone_SOURCES = config.c config.h opendkim-db.c opendkim-db.h opendkim-atpszone.c opendkim-lua.c util.c util.h
-opendkim_atpszone_CPPFLAGS = -I$(srcdir)/../libopendkim $(LIBCRYPTO_CPPFLAGS)
+opendkim_atpszone_CPPFLAGS = -I$(srcdir)/../libopendkim -I$(srcdir)/../libut $(LIBCRYPTO_CPPFLAGS)
 opendkim_atpszone_CFLAGS = $(COV_CFLAGS) $(LIBCRYPTO_CFLAGS) $(PTHREAD_CFLAGS)
 opendkim_atpszone_LDFLAGS = $(COV_LDFLAGS) $(LIBCRYPTO_LIBDIRS) $(PTHREAD_CFLAGS)
-opendkim_atpszone_LDADD = ../libopendkim/libopendkim.la $(COV_LIBADD) $(LIBCRYPTO_LIBS) $(PTHREAD_LIBS)
+opendkim_atpszone_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(COV_LIBADD) $(LIBCRYPTO_LIBS) $(PTHREAD_LIBS)
 if USE_DB_OPENDKIM
 opendkim_atpszone_CPPFLAGS += $(LIBDB_INCDIRS)
 opendkim_atpszone_LDFLAGS += $(LIBDB_LIBDIRS)

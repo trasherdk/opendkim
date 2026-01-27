@@ -32,6 +32,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include <ut/ut.h>
+
 /* opendkim includes */
 #include "config.h"
 
@@ -304,7 +307,7 @@ config_load_level(char *file, struct configdef *def,
 						size_t newlen;
 
 						oldlen = strlen(*deprecated);
-						newlen = oldlen + 2 + 
+						newlen = oldlen + 2 +
 						         strlen(def[n].cd_name);
 						new = realloc(*deprecated,
 						              newlen);

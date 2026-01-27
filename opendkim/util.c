@@ -56,6 +56,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include <ut/ut.h>
+
 /* opendkim includes */
 #include "opendkim.h"
 #include "util.h"
@@ -217,7 +220,7 @@ static unsigned char alphabet[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 /*
 **  DKIMF_ISBLANK -- return TRUE iff a string contains only whitespace
-**  
+**
 **  Parameters:
 **  	str -- string to check
 **

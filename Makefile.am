@@ -3,8 +3,8 @@
 AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = 
-SUBDIRS += libopendkim contrib docs
+SUBDIRS =
+SUBDIRS += libut libopendkim contrib docs
 if VBR
 SUBDIRS += libvbr
 endif
@@ -18,7 +18,7 @@ if STATS
 SUBDIRS += stats
 endif
 if REPUTE
-SUBDIRS += libut reputation
+SUBDIRS += reputation
 endif
 if REPRRD
 SUBDIRS += reprrd

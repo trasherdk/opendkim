@@ -224,10 +224,10 @@ then
 	LIBS="$LIBS $STRL_LIBS"
 fi
 
-# we need something above to have worked
+# we need something above to have worked, or we'll use built-in implementations
 if test x"$strl_found" != x"yes" -a x"$libstrl_found" != x"yes"
 then
-	AC_MSG_ERROR(no strlcpy/strlcat found)
+	AC_MSG_NOTICE([strlcpy/strlcat not found in system libraries, will use built-in implementations from libut])
 fi
 
 AC_CHECK_HEADERS([strl.h], [strl_h_found="yes"])

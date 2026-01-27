@@ -25,9 +25,9 @@ sbin_PROGRAMS += opendkim
 opendkim_SOURCES = opendkim.c opendkim.h opendkim-ar.c opendkim-ar.h opendkim-arf.c opendkim-arf.h opendkim-config.h opendkim-crypto.c opendkim-crypto.h opendkim-db.c opendkim-db.h opendkim-dns.c opendkim-dns.h opendkim-lua.c opendkim-lua.h config.c config.h flowrate.c flowrate.h reputation.c reputation.h stats.c stats.h test.c test.h util.c util.h
 opendkim_CC = $(PTHREAD_CC)
 opendkim_CFLAGS = $(PTHREAD_CFLAGS) $(LIBCRYPTO_CFLAGS) $(COV_CFLAGS)
-opendkim_CPPFLAGS = -I$(srcdir)/../libopendkim $(LIBCRYPTO_CPPFLAGS)
+opendkim_CPPFLAGS = -I$(srcdir)/../libopendkim -I$(srcdir)/../libut $(LIBCRYPTO_CPPFLAGS)
 opendkim_LDFLAGS = $(LIBCRYPTO_LIBDIRS) $(LIBMILTER_LIBDIRS) $(PTHREAD_CFLAGS) $(COV_LDFLAGS)
-opendkim_LDADD = ../libopendkim/libopendkim.la $(LIBMILTER_LIBS) $(LIBCRYPTO_LIBS) $(PTHREAD_LIBS) $(COV_LIBADD) $(LIBRESOLV)
+opendkim_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(LIBMILTER_LIBS) $(LIBCRYPTO_LIBS) $(PTHREAD_LIBS) $(COV_LIBADD) $(LIBRESOLV)
 if USE_DB_OPENDKIM
 opendkim_CPPFLAGS += $(LIBDB_INCDIRS)
 opendkim_LDFLAGS += $(LIBDB_LIBDIRS)
@@ -96,7 +96,7 @@ opendkim_stats_CC = $(PTHREAD_CC)
 opendkim_stats_SOURCES = opendkim-stats.c
 opendkim_stats_CPPFLAGS = -I$(srcdir)/../libopendkim
 opendkim_stats_LDFLAGS = $(COV_LDFLAGS)
-opendkim_stats_LDADD = ../libopendkim/libopendkim.la $(LIBCRYPTO_LIBS) $(COV_LIBADD) $(PTHREAD_LIBS)
+opendkim_stats_LDADD = ../libopendkim/libopendkim.la ../libut/libut.la $(LIBCRYPTO_LIBS) $(COV_LIBADD) $(PTHREAD_LIBS)
 opendkim_stats_CFLAGS = $(LIBCRYPTO_CFLAGS) $(COV_CFLAGS) $(PTHREAD_CFLAGS)
 opendkim_stats_CFLAGS += $(PTHREAD_CFLAGS)
 endif

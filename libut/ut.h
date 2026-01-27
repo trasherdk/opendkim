@@ -26,4 +26,8 @@ extern void ut_destroy(URITEMP);
 extern int ut_keyvalue(URITEMP, int, const char *, void *);
 extern size_t ut_generate(URITEMP, const char *, char *, size_t);
 
+/* strl.c prototypes */
+extern size_t strlcpy(char *, const char *, size_t);
+extern size_t strlcat(char *, const char *, size_t);
+
 #endif /* ! _UT_H_ */

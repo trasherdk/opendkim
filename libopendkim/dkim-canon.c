@@ -55,6 +55,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include "libut/ut.h"
+
 /* definitions */
 #define	CRLF	(u_char *) "\r\n"
 #define	SP	(u_char *) " "

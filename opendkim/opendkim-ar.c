@@ -31,6 +31,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include "../libut/ut.h"
+
 /* opendkim includes */
 #include "opendkim-ar.h"
 
@@ -377,7 +380,7 @@ ares_dedup(struct authres *ar, int n)
 **  	hdr -- NULL-terminated contents of an Authentication-Results:
 **  	       header field
 **  	ar -- a pointer to a (struct authres) loaded by values after parsing
-**  
+**
 **  Return value:
 **  	0 on success, -1 on failure.
 */

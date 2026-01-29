@@ -46,6 +46,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include "../libut/ut.h"
+
 /* opendkim includes */
 #include "opendkim-db.h"
 #include "opendkim-dns.h"

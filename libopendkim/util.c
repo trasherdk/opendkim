@@ -37,6 +37,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include "libut/ut.h"
+
 #if defined(__RES) && (__RES >= 19940415)
 # define RES_UNC_T		char *
 #else /* __RES && __RES >= 19940415 */

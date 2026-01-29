@@ -101,6 +101,9 @@
 # include <strl.h>
 #endif /* USE_STRL_H */
 
+/* libut for strlcpy/strlcat */
+#include "libut/ut.h"
+
 /* prototypes */
 void dkim_error __P((DKIM *, const char *, ...));
 

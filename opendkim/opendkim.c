@@ -5001,20 +5001,39 @@ dkimf_add_signrequest(struct msgctx *dfc, DKIMF_DB keytable, char *keyname,
 		if (!found)
 			return 1;
 
-		if (dbd[0].dbdata_buflen == 0 ||
-		    dbd[0].dbdata_buflen == (size_t) -1 ||
-		    dbd[1].dbdata_buflen == 0 ||
-		    dbd[1].dbdata_buflen == (size_t) -1 ||
-		    dbd[2].dbdata_buflen == 0 ||
-		    dbd[2].dbdata_buflen == (size_t) -1)
+		/* Check domain field (dbd[0]) */
+		if (dbd[0].dbdata_buflen == 0 || dbd[0].dbdata_buflen == (size_t) -1)
 		{
 			if (dolog)
 			{
 				syslog(LOG_ERR,
-				       "KeyTable entry for '%s' corrupt",
-				       keyname);
+				       "KeyTable entry for '%s': domain field corrupt (buflen=%zu)",
+				       keyname, dbd[0].dbdata_buflen);
 			}
+			return 2;
+		}
 
+		/* Check selector field (dbd[1]) */
+		if (dbd[1].dbdata_buflen == 0 || dbd[1].dbdata_buflen == (size_t) -1)
+		{
+			if (dolog)
+			{
+				syslog(LOG_ERR,
+				       "KeyTable entry for '%s': selector field corrupt (buflen=%zu)",
+				       keyname, dbd[1].dbdata_buflen);
+			}
+			return 2;
+		}
+
+		/* Check keydata field (dbd[2]) */
+		if (dbd[2].dbdata_buflen == 0 || dbd[2].dbdata_buflen == (size_t) -1)
+		{
+			if (dolog)
+			{
+				syslog(LOG_ERR,
+				       "KeyTable entry for '%s': keydata field corrupt (buflen=%zu)",
+				       keyname, dbd[2].dbdata_buflen);
+			}
 			return 2;
 		}
 
